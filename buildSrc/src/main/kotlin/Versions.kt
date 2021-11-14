@@ -23,4 +23,8 @@ object Versions {
     const val coreTestingVersion = "1.0.0"
     const val mockitoVersion = "1.10.19"
     const val volleyVersion = "1.2.1"
+    const val sdp = "1.0.6"
+    const val gson = "2.8.6"
+    const val timber = "4.7.1"
+    const val navigation = "2.3.5"
 }

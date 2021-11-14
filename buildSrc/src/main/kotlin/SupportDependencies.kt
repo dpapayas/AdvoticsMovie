@@ -14,4 +14,9 @@ object SupportDependencies {
     const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
     const val glideProcessor = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
     const val volley = "com.android.volley:volley:${Versions.volleyVersion}"
+    const val sdp = "com.intuit.sdp:sdp-android:${Versions.sdp}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    const val navigation_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigation_ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 }

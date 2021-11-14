@@ -38,6 +38,7 @@ android {
 
     buildFeatures {
         dataBinding = true
+        viewBinding = true
     }
 
 
@@ -60,6 +61,12 @@ dependencies {
     implementation(SupportDependencies.hiltLifecycleViewModel)
     implementation(SupportDependencies.glide)
     implementation(SupportDependencies.volley)
+
+    implementation(SupportDependencies.sdp)
+    implementation(SupportDependencies.gson)
+    implementation(SupportDependencies.timber)
+    implementation(SupportDependencies.navigation_fragment)
+    implementation(SupportDependencies.navigation_ui)
 
     kapt(SupportDependencies.roomCompiler)
     kapt(SupportDependencies.hiltAndroidCompiler)

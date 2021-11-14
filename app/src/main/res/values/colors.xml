@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#F2B833</color>
+    <color name="backGround">#1F2123</color>
+    <color name="backGroundAd">#0E1011</color>
+    <color name="mainText">#FFFFFFFF</color>
+    <color name="textTitle">#0E1011</color>
+    <color name="textSub">#BABABA</color>
 </resources>
