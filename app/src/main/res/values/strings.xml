@@ -9,4 +9,6 @@
     <string name="profile">Profile</string>
     <string name="search">Search</string>
     <string name="home">Home</string>
+
+    <string name="movie_get_error">Movie are not available at the moment, please try again later.</string>
 </resources>
