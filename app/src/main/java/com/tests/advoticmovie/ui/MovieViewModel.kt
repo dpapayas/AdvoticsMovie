@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.tests.advoticmovie.data.entity.Movie
+import com.tests.advoticmovie.data.entity.PopularMovie
 import com.tests.advoticmovie.data.repository.MovieRepository
 import com.tests.advoticmovie.data.response.ResultData
 import com.tests.advoticmovie.data.source.local.MovieDao
@@ -25,6 +26,10 @@ class MovieViewModel @Inject constructor(
     val getMovies: MutableLiveData<ResultData<List<Movie>>>
         get() = _getMovies
 
+    private val _getPopularMovies = MutableLiveData<ResultData<List<PopularMovie>>>()
+    val getPopularMovies: MutableLiveData<ResultData<List<PopularMovie>>>
+        get() = _getPopularMovies
+
     fun getAllMovies(context: Context) {
         viewModelScope.launch(Dispatchers.IO) {
             movieRepository.getMovies().collect {
@@ -41,11 +46,33 @@ class MovieViewModel @Inject constructor(
         }
     }
 
+    fun getAllPopularMovies(context: Context) {
+        viewModelScope.launch(Dispatchers.IO) {
+            movieRepository.getPopularMovies().collect {
+                if (it != null) {
+                    Log.d("test", "test")
+//                    insertMovieToRoomDB(it)
+                    _getPopularMovies.postValue(it)
+                } else {
+                    Log.d("test", "test")
+                    getMovieFromRoomDB(context)
+                }
+            }
+
+        }
+    }
+
     private fun insertMovieToRoomDB(it: ResultData<List<Movie>>) {
         viewModelScope.launch(Dispatchers.IO) {
             _getMovies.postValue(it)
             movieRepository.AddAllMovie(it.toData()!!)
+        }
+    }
 
+    private fun insertMoviePopularToRoomDB(it: ResultData<List<Movie>>) {
+        viewModelScope.launch(Dispatchers.IO) {
+            _getMovies.postValue(it)
+            movieRepository.AddAllMovie(it.toData()!!)
         }
     }
 

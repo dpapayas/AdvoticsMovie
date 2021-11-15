@@ -1,6 +1,7 @@
 package com.tests.advoticmovie.data.source.local
 
 import com.tests.advoticmovie.data.entity.Movie
+import com.tests.advoticmovie.data.entity.PopularMovie
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -14,6 +15,10 @@ class MovieDataSourceImpl @Inject constructor(
 
     override suspend fun addAllMovie(movie: List<Movie>) {
         movieDao.insertAll(movie)
+    }
+
+    override suspend fun addAllPopularMovie(movie: List<PopularMovie>) {
+        movieDao.insertAllPopularMovie(movie)
     }
 
     override suspend fun addMovie(movie: Movie) {

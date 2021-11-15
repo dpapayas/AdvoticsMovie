@@ -12,15 +12,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/image_slider_movieFragment"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_300sdp"
                 android:background="@color/backGround"
                 android:orientation="vertical"
+                android:padding="@dimen/_14sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/logo_tmdb"
+                    />
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.tests.advoticmovie.utils.fonts.FontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Welcome. "
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_20sdp"
+                        app:fontName="@string/font_name_source_nunito"
+                        app:textStyle="@integer/font_style_semibold" />
+
+                    <com.tests.advoticmovie.utils.fonts.FontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Milions of movies, TV shows and people to discover. Explore now."
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_20sdp"
+                        app:fontName="@string/font_name_source_nunito"
+                        app:textStyle="@integer/font_style_semibold" />
+
+                </LinearLayout>
+            </RelativeLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/popular_MovieLayout_movieFrag"
@@ -45,7 +82,7 @@
                         android:id="@+id/date_single_movie_slider"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Popular Movies"
+                        android:text="Hot Movies"
                         android:textColor="@color/textTitle"
                         android:textSize="@dimen/_10sdp"
                         app:fontName="@string/font_name_source_nunito"
@@ -62,8 +99,8 @@
                         android:id="@+id/popularMovieRecView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="@dimen/_5sdp"
                         android:clipToPadding="false"
+                        android:paddingHorizontal="@dimen/_5sdp"
                         android:visibility="invisible" />
 
                     <ProgressBar
@@ -77,22 +114,24 @@
                 </RelativeLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/topRated_MovieLayout_movieFrag"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/move_MovieLayout_movieFrag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/popular_MovieLayout_movieFrag">
+                app:layout_constraintTop_toBottomOf="@+id/popular_MovieLayout_movieFrag">
 
                 <LinearLayout
+                    android:id="@+id/header2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="@dimen/_10sdp">
+                    android:padding="@dimen/_10sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <com.tests.advoticmovie.utils.fonts.FontTextView
                         android:layout_width="wrap_content"
@@ -105,13 +144,29 @@
 
                 </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/topRatedMovieRecView_moviesFragment"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="60dp" />
+                    app:layout_constraintTop_toBottomOf="@+id/header2">
 
-            </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/hotMovieRecView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:visibility="invisible" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar_hot"
+                        style="@style/CircularDeterminateProgressBar"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_centerInParent="true"
+                        tools:progress="60" />
+
+                </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <LinearLayout
@@ -126,8 +181,8 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:layout_width="250dp"
-                    android:layout_height="300dp"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_no_internet" />
 

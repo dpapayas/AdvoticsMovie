@@ -8,6 +8,23 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="colorPrimary">@color/backGround</color>
+    <color name="colorPrimaryDarker">@color/backGround</color>
+    <color name="colorPrimaryMoreDarker">@color/backGround</color>
+    <color name="colorSecondary">@color/backGroundAd</color>
+    <color name="colorSecondaryDarker">@color/backGroundAd</color>
+
+    <color name="colorDarkBluePrimary">#435D6E</color>
+    <color name="colorDarkBluePrimary2">#8f9ca8</color>
+    <color name="colorDarkBlueSecondary">#5B8BA1</color>
+    <color name="colorDarkBlueLite">#E9F3FC</color>
+    // Green
+    <color name="colorGreenPrimary">#457536</color>
+    <color name="colorGreenSecondary">#8ED167</color>
+    <color name="colorGreenThird">#f1f6ec</color>
+    // Yellow
+    <color name="colorYellowPrimary">#EDC817</color>
+
     <color name="primary">#F2B833</color>
     <color name="backGround">#0C243F</color>
     <color name="backGroundAd">#0E1011</color>

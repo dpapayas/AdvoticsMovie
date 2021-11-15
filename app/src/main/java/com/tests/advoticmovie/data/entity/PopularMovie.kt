@@ -6,19 +6,19 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(primaryKeys = [("id")])
-data class Tv(
+data class PopularMovie(
     var page: Int,
     val poster_path: String?,
-    val popularity: Float,
-    val id: Int,
-    val backdrop_path: String?,
-    val vote_average: Float,
+    val adult: Boolean,
     val overview: String,
-    val first_air_date: String?,
-    val origin_country: List<String>,
-    val genre_ids: List<Int>,
+    val release_date: String?,
+    val id: Int,
+    val original_title: String,
     val original_language: String,
+    val title: String,
+    val backdrop_path: String?,
+    val popularity: Float,
     val vote_count: Int,
-    val name: String,
-    val original_name: String
+    val video: Boolean,
+    val vote_average: Float
 ) : Parcelable
