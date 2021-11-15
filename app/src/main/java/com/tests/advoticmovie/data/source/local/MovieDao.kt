@@ -20,6 +20,9 @@ interface MovieDao {
     @Query("SELECT * FROM Movie")
     fun getAllMovie() : Flow<List<Movie>>
 
+    @Query("SELECT * FROM PopularMovie")
+    fun getAllMoviePopular() : Flow<List<PopularMovie>>
+
     @Query("DELETE FROM Movie")
     suspend fun deleteAllMovie()
 }

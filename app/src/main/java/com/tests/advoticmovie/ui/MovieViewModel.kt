@@ -14,12 +14,14 @@ import com.tests.advoticmovie.ui.common.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.forEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MovieViewModel @Inject constructor(
-    private val movieRepository: MovieRepository
+    private val movieRepository: MovieRepository,
+    private val movieDao: MovieDao
 ) : BaseViewModel() {
 
     private val _getMovies = MutableLiveData<ResultData<List<Movie>>>()
@@ -33,9 +35,9 @@ class MovieViewModel @Inject constructor(
     fun getAllMovies(context: Context) {
         viewModelScope.launch(Dispatchers.IO) {
             movieRepository.getMovies().collect {
-                if (it != null) {
+                if (it.toData() != null) {
                     Log.d("test", "test")
-//                    insertMovieToRoomDB(it)
+                    insertMovieToRoomDB(it)
                     _getMovies.postValue(it)
                 } else {
                     Log.d("test", "test")
@@ -49,13 +51,13 @@ class MovieViewModel @Inject constructor(
     fun getAllPopularMovies(context: Context) {
         viewModelScope.launch(Dispatchers.IO) {
             movieRepository.getPopularMovies().collect {
-                if (it != null) {
+                if (it.toData() != null) {
                     Log.d("test", "test")
-//                    insertMovieToRoomDB(it)
+                    insertMoviePopularToRoomDB(it)
                     _getPopularMovies.postValue(it)
                 } else {
                     Log.d("test", "test")
-                    getMovieFromRoomDB(context)
+                    getMoviePopularFromRoomDB(context)
                 }
             }
 
@@ -69,16 +71,22 @@ class MovieViewModel @Inject constructor(
         }
     }
 
-    private fun insertMoviePopularToRoomDB(it: ResultData<List<Movie>>) {
+    private fun insertMoviePopularToRoomDB(it: ResultData<List<PopularMovie>>) {
         viewModelScope.launch(Dispatchers.IO) {
-            _getMovies.postValue(it)
-            movieRepository.AddAllMovie(it.toData()!!)
+            _getPopularMovies.postValue(it)
+            movieRepository.AddAllPopularMovie(it.toData()!!)
         }
     }
 
     private fun getMovieFromRoomDB(context: Context) {
         viewModelScope.launch(Dispatchers.IO) {
-            movieRepository.getFavorites()
+            movieRepository.getMoviesDB()
+        }
+    }
+
+    private fun getMoviePopularFromRoomDB(context: Context) {
+        viewModelScope.launch(Dispatchers.IO) {
+            movieRepository.getPopularMoviesDB()
         }
     }
 }

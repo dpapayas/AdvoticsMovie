@@ -14,11 +14,6 @@ class MovieRepositoryImpl(
     private val movieRemoteDataSource: MovieRemoteDataSource
 ) : MovieRepository {
 
-    override suspend fun getFavorites() = movieDataSource.getAll().flowOn(ioDispatcher)
-    override suspend fun getPopular(): Flow<List<Movie>> {
-        TODO("Not yet implemented")
-    }
-
     override suspend fun getMovies(): Flow<ResultData<List<Movie>>> = flow {
         emit(ResultData.Loading())
         movieRemoteDataSource.getAllMovie().collect {
@@ -44,4 +39,7 @@ class MovieRepositoryImpl(
     override suspend fun AddAllPopularMovie(movies: List<PopularMovie>) {
         movieDataSource.addAllPopularMovie(movies)
     }
+
+    override suspend fun getMoviesDB() = movieDataSource.getAllMovie().flowOn(ioDispatcher)
+    override suspend fun getPopularMoviesDB() = movieDataSource.getAllMoviePopular().flowOn(ioDispatcher)
 }

@@ -11,7 +11,8 @@ class MovieDataSourceImpl @Inject constructor(
     private val movieDao: MovieDao
 ) : MovieDataSource{
 
-    override fun getAll(): Flow<List<Movie>> = movieDao.getAllMovie()
+    override fun getAllMovie(): Flow<List<Movie>> = movieDao.getAllMovie()
+    override fun getAllMoviePopular(): Flow<List<PopularMovie>> = movieDao.getAllMoviePopular()
 
     override suspend fun addAllMovie(movie: List<Movie>) {
         movieDao.insertAll(movie)

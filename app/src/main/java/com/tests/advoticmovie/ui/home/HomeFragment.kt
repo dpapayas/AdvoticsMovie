@@ -1,22 +1,19 @@
-package com.tests.advoticmovie
+package com.tests.advoticmovie.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.tests.advoticmovie.data.entity.Movie
 import com.tests.advoticmovie.data.response.ResultData
 import com.tests.advoticmovie.databinding.FragmentHomeBinding
 import com.tests.advoticmovie.ui.MovieViewModel
 import com.tests.advoticmovie.ui.adapter.MovieAdapter
 import com.tests.advoticmovie.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
-import androidx.recyclerview.widget.LinearSnapHelper
 
 import androidx.recyclerview.widget.SnapHelper
+import com.tests.advoticmovie.R
 import com.tests.advoticmovie.ui.adapter.PopularMovieAdapter
 import com.tests.advoticmovie.utils.StartSnapHelper
 

@@ -7,7 +7,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 interface MovieDataSource {
-    fun getAll(): Flow<List<Movie>>
+    fun getAllMovie(): Flow<List<Movie>>
+    fun getAllMoviePopular(): Flow<List<PopularMovie>>
     suspend fun addAllMovie(movie : List<Movie>)
     suspend fun addAllPopularMovie(movie : List<PopularMovie>)
     suspend fun addMovie(movie: Movie)

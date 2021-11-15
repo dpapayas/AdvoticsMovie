@@ -1,4 +1,4 @@
-package com.tests.advoticmovie
+package com.tests.advoticmovie.ui
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.tests.advoticmovie.R
 import com.tests.advoticmovie.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
